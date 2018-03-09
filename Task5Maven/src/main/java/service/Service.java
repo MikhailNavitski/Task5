@@ -1,10 +1,11 @@
 package service;
 
-import entity.Book;
 
-import java.util.Set;
+
+import javax.servlet.http.HttpServletRequest;
+
 
 
 public interface Service {
-    Set<Book> determinant(String parserType);
+    String determinant(String parserType,HttpServletRequest request,String page);
 }

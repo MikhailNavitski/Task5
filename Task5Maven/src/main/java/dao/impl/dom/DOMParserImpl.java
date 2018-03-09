@@ -2,7 +2,7 @@ package dao.impl.dom;
 
 
 import dao.ParserDAO;
-import dao.constant.Constant;
+import constant.Constant;
 import dao.exception.DAOException;
 import entity.Book;
 import org.w3c.dom.Document;
@@ -11,15 +11,12 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import javax.servlet.ServletContext;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashSet;
-import java.util.ResourceBundle;
 import java.util.Set;
 
 public class DOMParserImpl implements ParserDAO {

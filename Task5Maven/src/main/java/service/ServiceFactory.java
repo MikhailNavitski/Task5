@@ -1,8 +1,6 @@
 package service;
 
 
-import service.impl.ServiceCommand;
-
 public final class ServiceFactory {
 
     private static final ServiceFactory instance = new ServiceFactory();

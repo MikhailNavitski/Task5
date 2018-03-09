@@ -1,7 +1,7 @@
 package dao.impl.sax;
 
 import dao.ParserDAO;
-import dao.constant.Constant;
+import constant.Constant;
 import dao.exception.DAOException;
 import entity.Book;
 import org.xml.sax.SAXException;

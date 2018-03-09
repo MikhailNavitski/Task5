@@ -1,7 +1,7 @@
 package controller;
 
 
-import entity.Book;
+
 import service.Service;
 import service.ServiceFactory;
 
@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 
-import java.util.Set;
+
 
 public class Controller extends HttpServlet {
 
@@ -27,18 +27,15 @@ public class Controller extends HttpServlet {
     }
 
     private void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Set<Book> setBook;
-
+        String url;
         String page = request.getParameter("page");
         String parserType = request.getParameter("parser");
 
         ServiceFactory factory = ServiceFactory.getInstance();
         Service service = factory.getService();
-        setBook = service.determinant(parserType);
+        url = service.determinant(parserType, request, page);
 
-        request.setAttribute("books", setBook);
-        request.setAttribute("page", page);
-        request.getRequestDispatcher("result.jsp").forward(request, response);
+        request.getRequestDispatcher(url).forward(request, response);
 
     }
 }

@@ -9,15 +9,16 @@
 
 <html>
 <head>
+    <link rel="stylesheet" ; href="index.css">
     <title>Parsing</title>
 </head>
 <body>
 <form action="/test" method="post">
-    <div align="center">
+    <div class="buttons" align="center">
         <input type="hidden" value="1" name="page">
         <button type="submit" value="StAX" name="parser">STAX</button>
-        <button  type="submit" value="SAX" name="parser">SAX</button>
-        <button  type="submit" value="DOM" name="parser">DOM</button>
+        <button type="submit" value="SAX" name="parser">SAX</button>
+        <button type="submit" value="DOM" name="parser">DOM</button>
     </div>
 
 </form>

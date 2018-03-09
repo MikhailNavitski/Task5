@@ -2,7 +2,7 @@ package dao.impl.stax;
 
 
 import dao.ParserDAO;
-import dao.constant.Constant;
+import constant.Constant;
 import dao.exception.DAOException;
 import entity.Book;
 

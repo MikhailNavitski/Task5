@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns="http://www.w3.org/2001/XMLSchema"
-        targetNamespace="http://www.example.com/web"
-        xmlns:tns="http://www.example.com/web"
+        targetNamespace="http://www.example.com/books"
+        xmlns:tns="http://www.example.com/books"
         elementFormDefault="qualified">
     <element name="catalog" type="tns:Catalog"/>
     <complexType name="Catalog">
