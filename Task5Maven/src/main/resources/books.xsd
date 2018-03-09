@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.example.com/web"
+        xmlns:tns="http://www.example.com/web"
+        elementFormDefault="qualified">
+    <element name="catalog" type="tns:Catalog"/>
+    <complexType name="Catalog">
+        <choice maxOccurs="unbounded">
+            <element name="book" type="tns:Book"/>
+        </choice>
+    </complexType>
+    <complexType name="Book">
+        <sequence>
+            <element name="author" type="string"/>
+            <element name="title" type="string"/>
+            <element name="genre" type="string"/>
+            <element name="price" type="double"/>
+            <element name="publish_date" type="string"/>
+            <element name="description" type="string"/>
+        </sequence>
+        <attribute name="id">
+            <simpleType>
+                <restriction base="string">
+                    <pattern value="[a-z]+[0-9]+"/>
+                </restriction>
+            </simpleType>
+        </attribute>
+    </complexType>
+</schema>
