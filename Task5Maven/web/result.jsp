@@ -22,7 +22,7 @@
         <td>publishDate</td>
         <td>description</td>
     </tr>
-    <c:forEach var="book" items="${books}" varStatus="status">
+    <c:forEach var="book" items="${requestScope.books}" varStatus="status">
         <tr>
             <td><c:out value="${ book.id }"/></td>
             <td><c:out value="${ book.author }"/></td>
@@ -35,10 +35,10 @@
     </c:forEach>
 </table>
 <%--<div align="center">--%>
-    <%--<c:forEach var="elem" items="${requestScope.pagination}" varStatus="status">--%>
-        <%--<a href="/test?page=${elem}">${elem}</a>--%>
+<%--<c:forEach var="elem" items="${requestScope.pagination}" varStatus="status">--%>
+<%--<a href="/test?page=${elem}">${elem}</a>--%>
 
-    <%--</c:forEach>--%>
+<%--</c:forEach>--%>
 
 <%--</div>--%>
 

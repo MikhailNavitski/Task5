@@ -4,7 +4,6 @@ package controller;
 import entity.Book;
 import service.Service;
 import service.ServiceFactory;
-import service.exception.ServiceException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -28,24 +27,18 @@ public class Controller extends HttpServlet {
     }
 
     private void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        try {
-            Set<Book> setBook;
-            String firstValue = request.getParameter("SAX");
-            String secondValue = request.getParameter("StAX");
-            String thirdValue = request.getParameter("DOM");
-            String page = request.getParameter("page");
+        Set<Book> setBook;
 
-            ServiceFactory factory = ServiceFactory.getInstance();
-            Service service = factory.getService();
-            setBook = service.determinant(firstValue, secondValue, thirdValue);
+        String page = request.getParameter("page");
+        String parserType = request.getParameter("parser");
 
-            request.setAttribute("books", setBook);
-            request.setAttribute("page", page);
-            request.getRequestDispatcher("result.jsp").forward(request, response);
-        } catch (ServiceException e) {
-            e.printStackTrace();
-//            request.getRequestDispatcher("error.jsp").forward(request, response);
-        }
+        ServiceFactory factory = ServiceFactory.getInstance();
+        Service service = factory.getService();
+        setBook = service.determinant(parserType);
+
+        request.setAttribute("books", setBook);
+        request.setAttribute("page", page);
+        request.getRequestDispatcher("result.jsp").forward(request, response);
 
     }
 }
