@@ -16,11 +16,9 @@ public class SAXParserImpl implements ParserDAO {
         try {
             List<Book>  bookList;
             ClassLoader contextClassLoader = Thread.currentThread().getContextClassLoader();
-            InputStream inputStream = contextClassLoader.getResourceAsStream(Constant.BOOKS_XML);
+            InputStream inputStream = contextClassLoader.getResourceAsStream(Constant.BOOK_XML);
 
             BookSAXBuilder saxBuilder = new BookSAXBuilder();
-
-
 
             saxBuilder.buildSetBooks(inputStream);
             bookList = saxBuilder.getBooks();

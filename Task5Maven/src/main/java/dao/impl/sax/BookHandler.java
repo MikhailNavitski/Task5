@@ -65,8 +65,7 @@ public class BookHandler extends DefaultHandler {
                     book.setDescription(s);
                     break;
                 default:
-                    throw new EnumConstantNotPresentException(
-                            bookEnum.getDeclaringClass(), bookEnum.name());
+                    throw new EnumConstantNotPresentException(bookEnum.getDeclaringClass(), bookEnum.name());
             }
         }
         bookEnum = null;

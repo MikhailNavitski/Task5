@@ -19,7 +19,7 @@ public class StAXParserImpl implements ParserDAO {
             BookStAXBuilder staxBuilder = new BookStAXBuilder();
 
             ClassLoader contextClassLoader = Thread.currentThread().getContextClassLoader();
-            InputStream inputStream = contextClassLoader.getResourceAsStream(Constant.BOOKS_XML);
+            InputStream inputStream = contextClassLoader.getResourceAsStream(Constant.BOOK_XML);
 
             staxBuilder.buildSetBook(inputStream);
             bookList = staxBuilder.getBook();

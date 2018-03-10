@@ -1,0 +1,9 @@
+.result{
+    position: absolute;
+    width: 40%;
+    height: 30%;
+    left: 50%;
+    top: 50%;
+    margin-left: -20%;
+    margin-top: -15%;
+}

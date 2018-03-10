@@ -20,7 +20,7 @@ public class BookStAXBuilder {
         inputFactory = XMLInputFactory.newInstance();
     }
 
-    public List<Book>  getBook() {
+    public List<Book> getBook() {
         return books;
     }
 

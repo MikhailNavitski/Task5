@@ -9,7 +9,6 @@ public class Book {
     private String description;
     private String id;
 
-
     public Book() {
 
     }

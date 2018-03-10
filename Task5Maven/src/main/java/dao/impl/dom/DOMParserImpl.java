@@ -23,31 +23,24 @@ import java.util.List;
 public class DOMParserImpl implements ParserDAO {
 
     @Override
-    public List<Book> parsing() throws  DAOException {
-        try{
+    public List<Book> parsing() throws DAOException {
+        try {
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder documentBuilder = factory.newDocumentBuilder();
 
             ClassLoader contextClassLoader = Thread.currentThread().getContextClassLoader();
-            InputStream inputStream = contextClassLoader.getResourceAsStream(Constant.BOOKS_XML);
+            InputStream inputStream = contextClassLoader.getResourceAsStream(Constant.BOOK_XML);
 
             Document document = documentBuilder.parse(inputStream);
-            List<Book>  bookList = new ArrayList<>();
-            Element root = document.getDocumentElement();
-            NodeList nodeList = root.getElementsByTagName("book");
-            for (int i = 0; i < nodeList.getLength(); i++) {
-                Element bookElement = (Element) nodeList.item(i);
-                Book book = buildBook(bookElement);
-                bookList.add(book);
-            }
+            List<Book> bookList;
+            bookList = creatingBook(document);
             return bookList;
-        }
-        catch (ParserConfigurationException | SAXException| IOException e){
+        } catch (ParserConfigurationException | SAXException | IOException e) {
             throw new DAOException("error DAOException: " + e);
         }
     }
 
-    private Book buildBook(Element bookElement) {
+    private static Book buildBook(Element bookElement) {
         Book book = new Book();
         book.setId(bookElement.getAttribute("id"));
         book.setAuthor(getElementTextContent(bookElement, "author"));
@@ -64,5 +57,17 @@ public class DOMParserImpl implements ParserDAO {
         Node node = nodeList.item(0);
         String text = node.getTextContent();
         return text;
+    }
+
+    private static List<Book> creatingBook(Document document) {
+        List<Book> bookList = new ArrayList<>();
+        Element root = document.getDocumentElement();
+        NodeList nodeList = root.getElementsByTagName("book");
+        for (int i = 0; i < nodeList.getLength(); i++) {
+            Element bookElement = (Element) nodeList.item(i);
+            Book book = buildBook(bookElement);
+            bookList.add(book);
+        }
+        return bookList;
     }
 }
