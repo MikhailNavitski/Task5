@@ -16,13 +16,14 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class DOMParserImpl implements ParserDAO {
 
     @Override
-    public  Set<Book> parsing() throws  DAOException {
+    public List<Book> parsing() throws  DAOException {
         try{
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder documentBuilder = factory.newDocumentBuilder();
@@ -31,7 +32,7 @@ public class DOMParserImpl implements ParserDAO {
             InputStream inputStream = contextClassLoader.getResourceAsStream(Constant.BOOKS_XML);
 
             Document document = documentBuilder.parse(inputStream);
-            Set<Book> bookList = new HashSet<>();
+            List<Book>  bookList = new ArrayList<>();
             Element root = document.getDocumentElement();
             NodeList nodeList = root.getElementsByTagName("book");
             for (int i = 0; i < nodeList.getLength(); i++) {

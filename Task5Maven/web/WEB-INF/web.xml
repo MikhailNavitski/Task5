@@ -13,13 +13,5 @@
         <servlet-name>My</servlet-name>
         <url-pattern>/test</url-pattern>
     </servlet-mapping>
-    <servlet>
-        <servlet-name>Pagination</servlet-name>
-        <servlet-class>controller.PaginationServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>Pagination</servlet-name>
-        <url-pattern>/pagination</url-pattern>
-    </servlet-mapping>
 
 </web-app>

@@ -8,13 +8,13 @@ import org.xml.sax.SAXException;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Set;
+import java.util.List;
 
 public class SAXParserImpl implements ParserDAO {
     @Override
-    public Set<Book> parsing() throws DAOException {
+    public List<Book> parsing() throws DAOException {
         try {
-            Set<Book> bookSet;
+            List<Book>  bookList;
             ClassLoader contextClassLoader = Thread.currentThread().getContextClassLoader();
             InputStream inputStream = contextClassLoader.getResourceAsStream(Constant.BOOKS_XML);
 
@@ -23,8 +23,8 @@ public class SAXParserImpl implements ParserDAO {
 
 
             saxBuilder.buildSetBooks(inputStream);
-            bookSet = saxBuilder.getBooks();
-            return bookSet;
+            bookList = saxBuilder.getBooks();
+            return bookList;
         } catch (SAXException | IOException e) {
             throw new DAOException("error DAOException: " + e);
 

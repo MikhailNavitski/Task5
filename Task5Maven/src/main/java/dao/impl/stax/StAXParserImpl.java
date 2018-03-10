@@ -9,21 +9,21 @@ import entity.Book;
 import javax.xml.stream.XMLStreamException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Set;
+import java.util.List;
 
 public class StAXParserImpl implements ParserDAO {
     @Override
-    public Set<Book> parsing() throws DAOException {
+    public List<Book> parsing() throws DAOException {
         try {
-            Set<Book> bookSet;
+            List<Book>  bookList;
             BookStAXBuilder staxBuilder = new BookStAXBuilder();
 
             ClassLoader contextClassLoader = Thread.currentThread().getContextClassLoader();
             InputStream inputStream = contextClassLoader.getResourceAsStream(Constant.BOOKS_XML);
 
             staxBuilder.buildSetBook(inputStream);
-            bookSet = staxBuilder.getBook();
-            return bookSet;
+            bookList = staxBuilder.getBook();
+            return bookList;
         } catch (IOException | XMLStreamException e) {
             throw new DAOException("error DAOException: " + e);
         }

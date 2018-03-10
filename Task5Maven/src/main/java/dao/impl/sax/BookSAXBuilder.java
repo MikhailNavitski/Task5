@@ -10,10 +10,10 @@ import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Set;
+import java.util.List;
 
 class BookSAXBuilder {
-    private Set<Book> books;
+    private List<Book> books;
     private BookHandler handler;
     private XMLReader reader;
     private SAXParser saxParser;
@@ -29,7 +29,7 @@ class BookSAXBuilder {
         }
     }
 
-    Set<Book> getBooks() {
+    List<Book>  getBooks() {
         return books;
     }
 

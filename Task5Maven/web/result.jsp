@@ -1,46 +1,53 @@
 <%--
   Created by IntelliJ IDEA.
   User: MTX_BY
-  Date: 08.03.2018
+  Date: 28.02.2018
   Time: 16:54
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
-<head><title>Core: forEach</title></head>
+<head><title>Result</title></head>
 
 <body>
-<table>
-    <tr>
-        <td>id</td>
-        <br>
-        <td>author</td>
-        <td>title</td>
-        <td>genre</td>
-        <td>price</td>
-        <td>publishDate</td>
-        <td>description</td>
-    </tr>
-    <c:forEach var="book" items="${requestScope.books}" varStatus="status">
-        <tr>
-            <td><c:out value="${ book.id }"/></td>
-            <td><c:out value="${ book.author }"/></td>
-            <td><c:out value="${ book.title}"/></td>
-            <td><c:out value="${ book.genre }"/></td>
-            <td><c:out value="${ book.price }"/></td>
-            <td><c:out value="${ book.publishDate }"/></td>
-            <td><c:out value="${ book.description }"/></td>
-        </tr>
+
+<div class="pages" align="center">
+    <c:forEach begin="1" end="${requestScope.pageCount}" var="pageCount">
+        <c:choose>
+            <c:when test="${requestScope.page == pageCount}">
+                ${pageCount}
+            </c:when>
+            <c:otherwise>
+                <a href="/test?page=${pageCount}&parser=${requestScope.parser}"> ${pageCount} </a>
+            </c:otherwise>
+        </c:choose>
     </c:forEach>
-</table>
-<%--<div align="center">--%>
-<%--<c:forEach var="elem" items="${requestScope.pagination}" varStatus="status">--%>
-<%--<a href="/test?page=${elem}">${elem}</a>--%>
+</div>
 
-<%--</c:forEach>--%>
-
-<%--</div>--%>
-
+<div class="result" align="center">
+    <table border="1">
+        <c:forEach var="book" items="${requestScope.books}" varStatus="status">
+            <tr>
+                <th>id</th>
+                <th>author</th>
+                <th>title</th>
+                <th>genre</th>
+                <th>price</th>
+                <th>publishDate</th>
+                <th>description</th>
+            </tr>
+            <tr>
+                <td><c:out value="${ book.id }"/></td>
+                <td><c:out value="${ book.author }"/></td>
+                <td><c:out value="${ book.title}"/></td>
+                <td><c:out value="${ book.genre }"/></td>
+                <td><c:out value="${ book.price }"/></td>
+                <td><c:out value="${ book.publishDate }"/></td>
+                <td><c:out value="${ book.description }"/></td>
+            </tr>
+        </c:forEach>
+    </table>
+</div>
 </body>
 </html>

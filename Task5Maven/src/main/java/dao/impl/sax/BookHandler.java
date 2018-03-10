@@ -4,22 +4,20 @@ import entity.Book;
 import org.xml.sax.Attributes;
 import org.xml.sax.helpers.DefaultHandler;
 
-import java.util.EnumSet;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class BookHandler extends DefaultHandler {
-    private Set<Book> books;
+    private List<Book>  books;
     private Book book = null;
     private BookEnum bookEnum = null;
     private EnumSet<BookEnum> withText;
 
     BookHandler() {
-        books = new HashSet<>();
+        books = new ArrayList<>();
         withText = EnumSet.range(BookEnum.AUTHOR, BookEnum.DESCRIPTION);
     }
 
-    Set<Book> getBooks() {
+    List<Book> getBooks() {
         return books;
     }
 
@@ -28,9 +26,9 @@ public class BookHandler extends DefaultHandler {
             book = new Book();
             book.setId(attrs.getValue(0));
         } else {
-            BookEnum temp = BookEnum.valueOf(qName.toUpperCase());
-            if (withText.contains(temp)) {
-                bookEnum = temp;
+            BookEnum enumValue = BookEnum.valueOf(qName.toUpperCase());
+            if (withText.contains(enumValue)) {
+                bookEnum = enumValue;
             }
         }
     }

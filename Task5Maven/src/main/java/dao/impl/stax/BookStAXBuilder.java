@@ -7,23 +7,21 @@ import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 public class BookStAXBuilder {
-    private HashSet<Book> students = new HashSet<>();
+    private List<Book> books = new ArrayList<>();
     private XMLInputFactory inputFactory;
 
     BookStAXBuilder() {
         inputFactory = XMLInputFactory.newInstance();
     }
 
-    public Set<Book> getBook() {
-        return students;
+    public List<Book>  getBook() {
+        return books;
     }
 
     void buildSetBook(InputStream inputStream) throws IOException, XMLStreamException {
@@ -36,7 +34,7 @@ public class BookStAXBuilder {
                 name = reader.getLocalName();
                 if (BookEnum.valueOf(name.toUpperCase()) == BookEnum.BOOK) {
                     Book st = buildBook(reader);
-                    students.add(st);
+                    books.add(st);
                 }
             }
         }

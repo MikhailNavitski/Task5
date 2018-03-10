@@ -28,12 +28,11 @@ public class Controller extends HttpServlet {
 
     private void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String url;
-        String page = request.getParameter("page");
-        String parserType = request.getParameter("parser");
 
         ServiceFactory factory = ServiceFactory.getInstance();
         Service service = factory.getService();
-        url = service.determinant(parserType, request, page);
+
+        url = service.determinant(request);
 
         request.getRequestDispatcher(url).forward(request, response);
 
