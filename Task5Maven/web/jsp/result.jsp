@@ -13,6 +13,12 @@
 </head>
 
 <body>
+<div class="main" align="center">
+    <form action="../index.jsp" >
+        <button type="submit" >Главная страница</button>
+    </form>
+
+</div>
 
 <div class="pages" align="center">
     <c:forEach begin="1" end="${requestScope.pageCount}" var="pageCount">
