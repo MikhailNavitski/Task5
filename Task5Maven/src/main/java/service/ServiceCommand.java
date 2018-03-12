@@ -26,10 +26,11 @@ public class ServiceCommand implements Service {
 
             Command command = director.getCommand(parserType);
             List<Book> bookList = command.parsing();
-            List<Book> result = getBooks(page, bookList);
+            int pageCount = PageCreator.generatePages(bookList);
 
+            List<Book> result = PageCreator.getBooks(page, bookList, pageCount);
 
-            request.setAttribute("pageCount", Constant.PAGE_COUNT);
+            request.setAttribute("pageCount", pageCount);
             request.setAttribute("books", result);
             request.setAttribute("page", page);
             request.setAttribute("parser", parserType);
@@ -41,12 +42,5 @@ public class ServiceCommand implements Service {
 
     }
 
-    @Override
-    public List<Book> getBooks(String page, List<Book> bookList) {
-        int start = (Integer.parseInt(page) - 1) * Constant.COUNT_OF_RECORTDS;
-        int end = Constant.COUNT_OF_RECORTDS + start;
-        bookList = bookList.subList(start, end);
-        return bookList;
-    }
 }
 
