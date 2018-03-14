@@ -2,8 +2,7 @@ package dao.impl.sax;
 
 import entity.Book;
 import org.xml.sax.SAXException;
-import org.xml.sax.XMLReader;
-import org.xml.sax.helpers.XMLReaderFactory;
+
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
@@ -15,14 +14,11 @@ import java.util.List;
 class BookSAXBuilder {
     private List<Book> books;
     private BookHandler handler;
-    private XMLReader reader;
     private SAXParser saxParser;
 
     BookSAXBuilder() {
         handler = new BookHandler();
         try {
-            reader = XMLReaderFactory.createXMLReader();
-            reader.setContentHandler(handler);
             saxParser = SAXParserFactory.newInstance().newSAXParser();
         } catch (SAXException | ParserConfigurationException e) {
             e.printStackTrace();

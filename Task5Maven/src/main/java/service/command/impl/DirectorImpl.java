@@ -2,9 +2,9 @@ package service.command.impl;
 
 import service.command.Command;
 import service.command.Director;
-import service.impl.ServiceDOM;
-import service.impl.ServiceSAX;
-import service.impl.ServiceStAX;
+import service.impl.ServiceDOMParser;
+import service.impl.ServiceSAXParser;
+import service.impl.ServiceStAXParser;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -24,9 +24,9 @@ public class DirectorImpl implements Director {
     }
 
     public void addMap() {
-        map.put("DOM", new ServiceDOM());
-        map.put("SAX", new ServiceSAX());
-        map.put("StAX", new ServiceStAX());
+        map.put("DOM", new ServiceDOMParser());
+        map.put("SAX", new ServiceSAXParser());
+        map.put("StAX", new ServiceStAXParser());
     }
 
     @Override

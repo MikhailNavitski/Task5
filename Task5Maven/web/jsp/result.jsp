@@ -7,6 +7,7 @@
 --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <html>
 <head><title>Result</title>
     <link rel="stylesheet" href="/css/result.css">
@@ -14,14 +15,28 @@
 
 <body>
 <div class="main" align="center">
-    <form action="../index.jsp" >
-        <button type="submit" >Главная страница</button>
+    <form action="../index.jsp">
+        <button type="submit">Главная страница</button>
     </form>
 
 </div>
 
+
 <div class="pages" align="center">
-    <c:forEach begin="1" end="${requestScope.pageCount}" var="pageCount">
+
+    <c:set value="${requestScope.page+2}" var="pageCount"/>
+
+    <c:if test="${pageCount gt requestScope.pageCount}">
+        <c:set value="${requestScope.pageCount}" var="pageCount"/>
+    </c:if>
+
+    <c:set value="${requestScope.page}" var="firstPage"/>
+
+    <c:if test="${page!=1}">
+        <a href="/test?page=${requestScope.page-1}&parser=${requestScope.parser}"> Prev </a>
+    </c:if>
+
+    <c:forEach begin="${firstPage}" end="${pageCount}" var="pageCount">
         <c:choose>
             <c:when test="${requestScope.page == pageCount}">
                 ${pageCount}
@@ -31,7 +46,14 @@
             </c:otherwise>
         </c:choose>
     </c:forEach>
+
+    <c:if test="${page!=requestScope.pageCount}">
+        <a href="/test?page=${requestScope.page+1}&parser=${requestScope.parser}"> Next </a>
+    </c:if>
+
+
 </div>
+
 
 <div class="result" align="center">
     <table border="1">

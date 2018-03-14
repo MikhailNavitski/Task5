@@ -55,8 +55,7 @@ public class DOMParserImpl implements ParserDAO {
     private static String getElementTextContent(Element element, String elementName) {
         NodeList nodeList = element.getElementsByTagName(elementName);
         Node node = nodeList.item(0);
-        String text = node.getTextContent();
-        return text;
+        return node.getTextContent();
     }
 
     private static List<Book> creatingBook(Document document) {

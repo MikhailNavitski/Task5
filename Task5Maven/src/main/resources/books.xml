@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
-<catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.example.com/books" xsi:schemaLocation="http://www.example.com/books books.xsd">
+<catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.example.com/books"
+         xsi:schemaLocation="http://www.example.com/books books.xsd">
     <book id="bk101">
         <author>Gambardella, Matthew</author>
         <title>XML Developer's Guide</title>
@@ -129,9 +130,9 @@
             environment.
         </description>
     </book>
-    <book  id="bk113">
+    <book id="bk113">
         <author>Giada De Laurentiis</author>
-        <title >Everyday Italian</title>
+        <title>Everyday Italian</title>
         <genre>cooking</genre>
         <price>30.00</price>
         <publish_date>2001-04-11</publish_date>
@@ -140,32 +141,20 @@
     </book>
     <book id="bk114">
         <author>J K. Rowling</author>
-        <title >Harry Potter</title>
+        <title>Harry Potter</title>
         <genre>children</genre>
         <price>29.99</price>
         <publish_date>2001-04-12</publish_date>
         <description>Book about Harry Potter.
         </description>
     </book>
-    <book  id="bk115">
+    <book id="bk115">
         <author>James McGovern</author>
-        <title >XQuery Kick Start</title>
+        <title>XQuery Kick Start</title>
         <genre>web</genre>
         <price>49.99</price>
         <publish_date>2001-04-17</publish_date>
         <description>Book about Web.
-        </description>
-    </book>
-    <book id="bk116">
-        <author>Galos, Mike</author>
-        <title>Visual Studio 7: A Comprehensive Guide</title>
-        <genre>Computer</genre>
-        <price>49.95</price>
-        <publish_date>2001-04-16</publish_date>
-        <description>Microsoft Visual Studio 7 is explored in depth,
-            looking at how Visual Basic, Visual C++, C#, and ASP+ are
-            integrated into a comprehensive development
-            environment.
         </description>
     </book>
 
