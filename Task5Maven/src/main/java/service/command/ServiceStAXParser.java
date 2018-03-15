@@ -1,11 +1,11 @@
-package service.impl;
+package service.command;
 
 import dao.DAOFactory;
 import dao.ParserDAO;
 import dao.exception.DAOException;
 import entity.Book;
 
-import service.command.Command;
+
 import service.exception.ServiceException;
 
 

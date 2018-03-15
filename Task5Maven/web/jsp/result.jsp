@@ -7,7 +7,6 @@
 --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <html>
 <head><title>Result</title>
     <link rel="stylesheet" href="/css/result.css">
@@ -32,7 +31,7 @@
 
     <c:set value="${requestScope.page}" var="firstPage"/>
 
-    <c:if test="${page!=1}">
+    <c:if test="${requestScope.page!=1}">
         <a href="/test?page=${requestScope.page-1}&parser=${requestScope.parser}"> Prev </a>
     </c:if>
 
@@ -47,7 +46,7 @@
         </c:choose>
     </c:forEach>
 
-    <c:if test="${page!=requestScope.pageCount}">
+    <c:if test="${requestScope.page!=requestScope.pageCount}">
         <a href="/test?page=${requestScope.page+1}&parser=${requestScope.parser}"> Next </a>
     </c:if>
 

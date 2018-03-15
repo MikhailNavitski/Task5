@@ -1,7 +1,8 @@
-package service;
+package service.impl;
 
 import constant.Constant;
 import entity.Book;
+import service.Service;
 import service.command.Command;
 import service.command.impl.DirectorImpl;
 import service.creator.PageCreator;

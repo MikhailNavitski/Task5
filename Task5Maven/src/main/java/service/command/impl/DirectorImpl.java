@@ -2,9 +2,9 @@ package service.command.impl;
 
 import service.command.Command;
 import service.command.Director;
-import service.impl.ServiceDOMParser;
-import service.impl.ServiceSAXParser;
-import service.impl.ServiceStAXParser;
+import service.command.ServiceDOMParser;
+import service.command.ServiceSAXParser;
+import service.command.ServiceStAXParser;
 
 import java.util.HashMap;
 import java.util.Map;
