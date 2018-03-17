@@ -23,8 +23,8 @@ public class ServiceCommand implements Service {
             DirectorImpl director = DirectorImpl.getInstance();
             director.addMap();
 
-            String parserType = request.getParameter("parser");
-            String page = request.getParameter("page");
+            String parserType = request.getParameter(Constant.PARSER_TYPE);
+            String page = request.getParameter(Constant.PAGE);
 
             Command command = director.getCommand(parserType);
             List<Book> bookList = command.parsing();

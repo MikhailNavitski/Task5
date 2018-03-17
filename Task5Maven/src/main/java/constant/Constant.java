@@ -9,6 +9,8 @@ public final class Constant {
     public static final String BOOK_XSD = "books.xsd";
 
     public static final Integer COUNT_OF_RECORTDS = 2;
+    public static final String PARSER_TYPE = "parser";
+    public static final String PAGE = "page";
 
     public Constant() {
 

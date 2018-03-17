@@ -13,6 +13,7 @@
 </head>
 
 <body>
+
 <div class="main" align="center">
     <form action="../index.jsp">
         <button type="submit">Главная страница</button>
